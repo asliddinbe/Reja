@@ -8,7 +8,7 @@
 //     "endi dam oling foydasi yuq endi",// 60
 // ];
 
-// ////CALBACK function
+// // ////CALBACK function
 // function maslahatBering(a, callback) {
 //     if ( typeof a !== "namber") callback("Insert a number", null);
 //     else if (a <= 20) callback( null, list[0]);
@@ -17,17 +17,17 @@
 //     else if (a <= 40 && a <= 50) callback( null, list[3]);
 //     else if (a <= 50 && a <= 60) callback( null, list[4]);
 //     else {
-//         setInterval(function () {
-//             callback( null, list[5])
-//         }, 1000);
+//         setTimeout(function () {
+//             callback( null, list[5]);
+//         }, 5000);
 //     }
 // }
 
 // console.log("passed here 0");
-// maslahatBering(70, (err, data) => {
+// maslahatBering(50, (err, data) => {
 //     if (err) console.log("ERROR:", err);
 //     else {
-//         console.log(data);
+//         console.log("javob:",data);
 //     }
 // });
 // console.log("passed here 1");
