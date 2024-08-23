@@ -1,3 +1,5 @@
+// const { default: axios } = require("axios");
+
 console.log("Frontend JS ishga tushdi");
 
 function itemTemplate(item) {
@@ -38,6 +40,27 @@ axios
   }) 
   .catch((err) => {
       console.log("Iltimos qaytadan harakat qiling");
-  });
+    });
+});
 
+document.addEventListener("click",function(e) {
+  //delete oper
+  console.log(e.target);
+  if (e.target.classList.contains("delete-me")) {
+    if (confirm("aniq uchirmoqchimisiz?")) {
+      axios
+      .post("/delete-item",{ id: e.target.getAttribute("data-id") })
+      .then((respose) => {
+        console.log(respose.data);
+        e.target.parentElement.parentElement.remove();
+      })
+      .catch((err) => {
+        console.log("Iltimos qaytadan harakat qiling");
+      });
+    }
+  }
+
+  if (e.target.classList.contains("edit-me")) {
+    alert("siz edit tugmasini bosdingiz");
+  }
 });
