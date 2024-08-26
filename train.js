@@ -1,3 +1,16 @@
+// TASK D
+
+function checkContent(a, b) {
+  let array1 = a.split("").sort().join("");
+  let array2 = b.split("").sort().join("");
+  if (array1 === array2) {
+    return true;
+  }
+  return false;
+}
+
+console.log(checkContent("mitgroup", "mitgroup"));
+console.log(checkContent("flxygroup", "mitgroup"));
 
 
 
