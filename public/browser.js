@@ -1,4 +1,3 @@
-// const { default: axios } = require("axios");
 
 console.log("Frontend JS ishga tushdi");
 
@@ -45,7 +44,7 @@ axios
 
 document.addEventListener("click",function(e) {
   //delete oper
-  console.log(e.target);
+  
   if (e.target.classList.contains("delete-me")) {
     if (confirm("aniq uchirmoqchimisiz?")) {
       axios
@@ -60,7 +59,38 @@ document.addEventListener("click",function(e) {
     }
   }
 
-  if (e.target.classList.contains("edit-me")) {
-    alert("siz edit tugmasini bosdingiz");
+  //edit oper
+if (e.target.classList.contains("edit-me")) {
+  alert("Siz edit tugmasini bosdingiz");
+  let userInput = prompt("ozgartirish kiriting", 
+    e.target.parentElement.parentElement.querySelector(".item-text").innerHTML
+  );
+  if (userInput) {
+    axios
+      .post("/edit-item", {
+        id: e.target.getAttribute("data-id"), 
+        new_input: userInput,
+      })
+      .then((response) => {
+        console.log(response.data);
+        e.target.parentElement.parentElement.querySelector(
+          ".item-text"
+        ).innerHTML =userInput;
+      })
+      .catch((err) => {
+        console.log("Iltimos, qaytadan harakat qilib ko'ring.");
+      });
   }
+
+}
+});
+
+//delet  all
+document.getElementById("clean-all").addEventListener("click", function() {
+  axios
+  .post("/delete-all", { delete_all: true }) 
+  .then((response) => {
+    alert(response.data.state); 
+    document.location.reload(); 
+  });
 });
