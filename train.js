@@ -1,9 +1,29 @@
-//TASK E
-function stringEnd(a)  {
-  let grup = a.split("").reverse().join("");
-  return grup;
+
+//TASK F
+
+function polar(olleh) {
+ const north = olleh.split("");
+ const south = north.some((magnus, index) => {
+  console.log(`${north.indexOf(magnus)} !== ${index}`);
+  return north.indexOf(magnus) !== index;
+ });
+ return south
 }
-console.log(stringEnd("PuorgtiM"));
+console.log(polar("olleh"));
+
+
+
+
+
+
+
+
+//TASK E
+// function stringEnd(a)  {
+//   let grup = a.split("").reverse().join("");
+//   return grup;
+// }
+// console.log(stringEnd("PuorgtiM"));
 
 
 
